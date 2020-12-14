@@ -1,53 +1,22 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 
-const agplv3 = {
-    name: "GNU Affero General Public License v3.0",
-    badge: "badgeURL",
-    lic: "https://choosealicense.com/licenses/agpl-3.0/"
+class License {
+    constructor(name, badge, lic) {
+        this.name = name,
+        this.badge = badge,
+        this.lic = lic
+    }
 }
 
-const gplv3 = {
-    name: "GNU General Public License v3.0",
-    badge: "badgeURL",
-    lic: "https://choosealicense.com/licenses/gpl-3.0/"
-}
-
-const lgplv3 = {
-    name: "GNU Lesser General Public License v3.0",
-    badge: "badgeURL",
-    lic: "https://choosealicense.com/licenses/lgpl-3.0/"
-}
-
-const mozilla = {
-    name: "Mozilla Publice License 2.0",
-    badge: "badgeURL",
-    lic: "https://choosealicense.com/licenses/mpl-2.0/"
-}
-
-const apache = {
-    name: "Apache License 2.0",
-    badge: "badgeURL",
-    lic: "https://choosealicense.com/licenses/apache-2.0/"
-}
-
-const mit = {
-    name: "MIT License",
-    badge: "badgeURL",
-    lic: "https://choosealicense.com/licenses/mit/"
-}
-
-const boost = {
-    name: "Boost Software License 1.0",
-    badge: "badgeURL",
-    lic: "https://choosealicense.com/licenses/bsl-1.0/"
-}
-
-const uni = {
-    name: "Unilicense",
-    badge: "badgeURL",
-    lic: "https://choosealicense.com/licenses/unlicense/"
-}
+const agplv3 = new License("GNU Affero General Public License v3.0", "badgeURL", "https://choosealicense.com/licenses/agpl-3.0/");
+const gplv3 = new License("GNU General Public License v3.0", "badgeURL", "https://choosealicense.com/licenses/gpl-3.0/");
+const lgplv3 = new License("GNU Lesser General Public License v3.0", "badgeURL", "https://choosealicense.com/licenses/lgpl-3.0/");
+const mozilla = new License("Mozilla Publice License 2.0", "badgeURL", "https://choosealicense.com/licenses/mpl-2.0/");
+const apache = new License("Apache License 2.0", "badgeURL", "https://choosealicense.com/licenses/apache-2.0/");
+const mit = new License("MIT License", "badgeURL", "https://choosealicense.com/licenses/mit/");
+const boost = new License("Boost Software License 1.0", "badgeURL", "https://choosealicense.com/licenses/bsl-1.0/");
+const uni = new License("Unilicense", "badgeURL", "https://choosealicense.com/licenses/unlicense/");
 
 inquirer
   .prompt([
