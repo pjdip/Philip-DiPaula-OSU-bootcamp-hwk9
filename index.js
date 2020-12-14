@@ -1,6 +1,54 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 
+const agplv3 = {
+    name: "GNU Affero General Public License v3.0",
+    badge: "badgeURL",
+    lic: "https://choosealicense.com/licenses/agpl-3.0/"
+}
+
+const gplv3 = {
+    name: "GNU General Public License v3.0",
+    badge: "badgeURL",
+    lic: "https://choosealicense.com/licenses/gpl-3.0/"
+}
+
+const lgplv3 = {
+    name: "GNU Lesser General Public License v3.0",
+    badge: "badgeURL",
+    lic: "https://choosealicense.com/licenses/lgpl-3.0/"
+}
+
+const mozilla = {
+    name: "Mozilla Publice License 2.0",
+    badge: "badgeURL",
+    lic: "https://choosealicense.com/licenses/mpl-2.0/"
+}
+
+const apache = {
+    name: "Apache License 2.0",
+    badge: "badgeURL",
+    lic: "https://choosealicense.com/licenses/apache-2.0/"
+}
+
+const mit = {
+    name: "MIT License",
+    badge: "badgeURL",
+    lic: "https://choosealicense.com/licenses/mit/"
+}
+
+const boost = {
+    name: "Boost Software License 1.0",
+    badge: "badgeURL",
+    lic: "https://choosealicense.com/licenses/bsl-1.0/"
+}
+
+const uni = {
+    name: "Unilicense",
+    badge: "badgeURL",
+    lic: "https://choosealicense.com/licenses/unlicense/"
+}
+
 inquirer
   .prompt([
     {
@@ -14,29 +62,29 @@ inquirer
         name: 'email',
     },
     {
-      type: 'input',
-      message: "What is your project's title? ",
-      name: 'title',
+        type: 'input',
+        message: "What is your project's title? ",
+        name: 'title',
     },
     {
-      type: 'input',
-      message: 'Please enter a description of your project: ',
-      name: 'description',
+        type: 'input',
+        message: 'Please enter a description of your project: ',
+        name: 'description',
     },
     {
-      type: 'input',
-      message: 'Please provide installation instructions for your project: ',
-      name: 'install',
+        type: 'input',
+        message: 'Please provide installation instructions for your project: ',
+        name: 'install',
     },
     {
-      type: 'input',
-      message: 'Please provide usage information: ',
-      name: 'usage',
+        type: 'input',
+        message: 'Please provide usage information: ',
+        name: 'usage',
     },
     {
-      type: 'input',
-      message: 'Please provide guidelines for contributing to your project: ',
-      name: 'contribute',
+        type: 'input',
+        message: 'Please provide guidelines for contributing to your project: ',
+        name: 'contribute',
     },
     {
         type: 'input',
@@ -51,12 +99,6 @@ inquirer
     },
   ])
   .then((response) => {
-
-    const agplv3 = {
-        badge: badgeURL,
-        lic: licenseURL
-    }
-
     fs.writeFile('README.md',
     `# ${response.title}
 
