@@ -38,11 +38,36 @@ inquirer
       message: 'Please provide guidelines for contributing to your project: ',
       name: 'contribute',
     },
+    {
+        type: 'input',
+        message: 'Please provide instructions for testing your project: ',
+        name: 'test',
+    },
+    {
+        type: 'list',
+        message: 'Please choose the software license for your project:',
+        choices: ['GNU AGPLv3', 'GNU GPLv3', 'GNU LGPLv3', 'Mozilla Public License 2.0', 'Apache License 2.0', 'MIT License', 'Boost Software License 1.0', 'The Unilicense'],
+        name: 'license',
+    },
   ])
   .then((response) => {
 
+    const agplv3 = {
+        badge: badgeURL,
+        lic: licenseURL
+    }
+
     fs.writeFile('README.md',
     `# ${response.title}
+
+    ## Badges
+    
+
+    ![languages](https://img.shields.io/github/languages/count/${response.hubName}/${response.title})
+    ![top-language](https://img.shields.io/github/languages/top/${response.hubName}/${response.title})
+    ![repo-size](https://img.shields.io/github/repo-size/${response.hubName}/${response.title})
+    ![open-issues](https://img.shields.io/github/issues-raw/${response.hubName}/${response.title})
+    ![last-commit](https://img.shields.io/github/last-commit/${response.hubName}/${response.title})
 
     ## Description
     
@@ -83,7 +108,11 @@ inquirer
     
     ## Credits
     
+    ${response.credits}
+
     ## License
+
+    Licensed under the [License Title](licenseURL)
 
     ## Contributing
 
@@ -91,22 +120,13 @@ inquirer
 
     ## Tests
 
+    ${response.test}
+
     ## Questions
 
     My github profile: https://github.com/${response.hubName}
 
-    For any questions about the project, please reach me at: ${response.email}
-
-    ## Badges
-    
-    ![languages](https://img.shields.io/github/languages/count/Settc/CryptoPURRency)
-    ![top-language](https://img.shields.io/github/languages/top/Settc/CryptoPURRency)
-    ![repo-size](https://img.shields.io/github/repo-size/Settc/CryptoPURRency)
-    ![open-issues](https://img.shields.io/github/issues-raw/Settc/CryptoPURRency)
-    ![last-commit](https://img.shields.io/github/last-commit/Settc/CryptoPURRency)
-    
-    
-    
+    For any questions about the project, please reach me at: ${response.email}    
     
     ---`
 
