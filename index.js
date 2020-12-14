@@ -5,13 +5,13 @@ inquirer
   .prompt([
     {
       type: 'input',
-      message: "What is your project's title?",
+      message: "What is your project's title? ",
       name: 'title',
     },
     {
       type: 'input',
-      message: 'What is your location?',
-      name: 'location',
+      message: 'Please enter a description of your project: ',
+      name: 'description',
     },
     {
       type: 'input',
@@ -31,24 +31,26 @@ inquirer
   ])
   .then((response) => {
 
-    fs.writeFile('index.html',
+    fs.writeFile('README.md',
     `# ${response.title}
 
-    ## These are the files for the first OSU Web Development Bootcamp Project Assignment
+    ## Description
     
-    Here is a [link](https://settc.github.io/CryptoPURRency/) to the live page :D
+    ${response.description}
     
-    The goal of this project was to use our newly acquired skills and knowledge to build a web application from scratch. In order to do this, we needed to learn how to use git more effectively in a team setting and harness our creativity. The app we created allows the user to search for a cryptocurrency and find current and past market data on that coin.
+    ## Table of Contents
     
     * [Installation](#installation)
     * [Usage](#usage)
     * [Credits](#credits)
-    * [Badges](#badges)
     * [License](#license)
+    * [Contributing](#contributing)
+    * [Tests](#tests)
+    * [Questions](#questions)
     
     ## Installation
     
-    The only thing you will need to have installed in order to run the index.html file is a functioning web browser. It should work with most versions of most browswers. I highly recommend the [Brave](https://basicattentiontoken.org/) browser for this app, as you will be paid in the Basic Attention Token (BAT) for viewing ads, instead of being bombarded with ads and getting nothing for it. It is also valuable to use this browser, as it is in keeping with the theme of the project. The webpage will require access to the localStorage on your browser in order to save the portfolio properly.
+    ${response.install}
     
     ## Usage 
     
