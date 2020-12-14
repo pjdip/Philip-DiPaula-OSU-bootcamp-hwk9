@@ -9,14 +9,14 @@ class License {
     }
 }
 
-const agplv3 = new License("GNU Affero General Public License v3.0", "badgeURL", "https://choosealicense.com/licenses/agpl-3.0/");
-const gplv3 = new License("GNU General Public License v3.0", "badgeURL", "https://choosealicense.com/licenses/gpl-3.0/");
-const lgplv3 = new License("GNU Lesser General Public License v3.0", "badgeURL", "https://choosealicense.com/licenses/lgpl-3.0/");
-const mozilla = new License("Mozilla Publice License 2.0", "badgeURL", "https://choosealicense.com/licenses/mpl-2.0/");
-const apache = new License("Apache License 2.0", "badgeURL", "https://choosealicense.com/licenses/apache-2.0/");
-const mit = new License("MIT License", "badgeURL", "https://choosealicense.com/licenses/mit/");
-const boost = new License("Boost Software License 1.0", "badgeURL", "https://choosealicense.com/licenses/bsl-1.0/");
-const uni = new License("Unilicense", "badgeURL", "https://choosealicense.com/licenses/unlicense/");
+const agplv3 = new License("GNU Affero General Public License v3.0", "[![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)", "https://choosealicense.com/licenses/agpl-3.0/");
+const gplv3 = new License("GNU General Public License v3.0", "[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)", "https://choosealicense.com/licenses/gpl-3.0/");
+const lgplv3 = new License("GNU Lesser General Public License v3.0", "[![License: LGPL v3](https://img.shields.io/badge/License-LGPL%20v3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0)", "https://choosealicense.com/licenses/lgpl-3.0/");
+const mozilla = new License("Mozilla Publice License 2.0", "[![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)", "https://choosealicense.com/licenses/mpl-2.0/");
+const apache = new License("Apache License 2.0", "[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)", "https://choosealicense.com/licenses/apache-2.0/");
+const mit = new License("MIT License", "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)", "https://choosealicense.com/licenses/mit/");
+const boost = new License("Boost Software License 1.0", "[![License](https://img.shields.io/badge/License-Boost%201.0-lightblue.svg)](https://www.boost.org/LICENSE_1_0.txt)", "https://choosealicense.com/licenses/bsl-1.0/");
+const uni = new License("Unilicense", "[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)", "https://choosealicense.com/licenses/unlicense/");
 
 inquirer
   .prompt([
@@ -94,7 +94,7 @@ inquirer
 
     ## Badges
     
-
+    ${chosenLicense.badge}
     ![languages](https://img.shields.io/github/languages/count/${response.hubName}/${response.title})
     ![top-language](https://img.shields.io/github/languages/top/${response.hubName}/${response.title})
     ![repo-size](https://img.shields.io/github/repo-size/${response.hubName}/${response.title})
