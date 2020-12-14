@@ -61,6 +61,11 @@ inquirer
         name: 'test',
     },
     {
+        type: 'input',
+        message: 'Please list any resouces you would like to credit that you used while working on your project: ',
+        name: 'credits',
+    },
+    {
         type: 'list',
         message: 'Please choose the software license for your project:',
         choices: ['GNU AGPLv3', 'GNU GPLv3', 'GNU LGPLv3', 'Mozilla Public License 2.0', 'Apache License 2.0', 'MIT License', 'Boost Software License 1.0', 'The Unilicense'],
@@ -89,78 +94,78 @@ inquirer
         chosenLicense = uni;
     }
 
-    fs.writeFile('README.md',
+    fs.writeFile('./generatedREADME/README.md',
     `# ${response.title}
 
-    ## Badges
-    
-    ${chosenLicense.badge}
-    ![languages](https://img.shields.io/github/languages/count/${response.hubName}/${response.title})
-    ![top-language](https://img.shields.io/github/languages/top/${response.hubName}/${response.title})
-    ![repo-size](https://img.shields.io/github/repo-size/${response.hubName}/${response.title})
-    ![open-issues](https://img.shields.io/github/issues-raw/${response.hubName}/${response.title})
-    ![last-commit](https://img.shields.io/github/last-commit/${response.hubName}/${response.title})
+## Badges
 
-    ## Description
-    
-    ${response.description}
-    
-    ## Table of Contents
-    
-    * [Installation](#installation)
-    * [Usage](#usage)
-    * [Credits](#credits)
-    * [License](#license)
-    * [Contributing](#contributing)
-    * [Tests](#tests)
-    * [Questions](#questions)
-    
-    ## Installation
-    
-    ${response.install}
-    
-    ## Usage 
-    
-    ${response.usage}
+${chosenLicense.badge}
+![languages](https://img.shields.io/github/languages/count/${response.hubName}/${response.title})
+![top-language](https://img.shields.io/github/languages/top/${response.hubName}/${response.title})
+![repo-size](https://img.shields.io/github/repo-size/${response.hubName}/${response.title})
+![open-issues](https://img.shields.io/github/issues-raw/${response.hubName}/${response.title})
+![last-commit](https://img.shields.io/github/last-commit/${response.hubName}/${response.title})
 
-    Here are some screenshots:
-    From Desktop:
-    ![main](./assets/images/mainpage.png)
-    ![defi](./assets/images/defi.png)
-    ![portfolio](./assets/images/portfolio.png)
-    ![hourGraph](./assets/images/hourGraph.png)
-    ![graph](./assets/images/graph.png)
-    ![coin data](./assets/images/bitcoin.png)
-    ![sad cat](./assets/images/honey.png)
-    
-    From Mobile:
-    ![mobile main](./assets/images/mobile-main.png)
-    ![mobile graph with happy cats](./assets/images/mobile-graph.png)
-    ![silly random coin data](./assets/images/silly-random-mobile.png)
-    
-    ## Credits
-    
-    ${response.credits}
+## Description
 
-    ## License
+${response.description}
 
-    Licensed under the [${chosenLicense.name}](${chosenLicense.lic})
+## Table of Contents
 
-    ## Contributing
+* [Installation](#installation)
+* [Usage](#usage)
+* [Credits](#credits)
+* [License](#license)
+* [Contributing](#contributing)
+* [Tests](#tests)
+* [Questions](#questions)
 
-    ${response.contribute}
+## Installation
 
-    ## Tests
+${response.install}
 
-    ${response.test}
+## Usage 
 
-    ## Questions
+${response.usage}
 
-    My github profile: https://github.com/${response.hubName}
+Here are some screenshots:
+From Desktop:
+![main](./assets/images/mainpage.png)
+![defi](./assets/images/defi.png)
+![portfolio](./assets/images/portfolio.png)
+![hourGraph](./assets/images/hourGraph.png)
+![graph](./assets/images/graph.png)
+![coin data](./assets/images/bitcoin.png)
+![sad cat](./assets/images/honey.png)
 
-    For any questions about the project, please reach me at: ${response.email}    
-    
-    ---`
+From Mobile:
+![mobile main](./assets/images/mobile-main.png)
+![mobile graph with happy cats](./assets/images/mobile-graph.png)
+![silly random coin data](./assets/images/silly-random-mobile.png)
+
+## Credits
+
+${response.credits}
+
+## License
+
+Licensed under the [${chosenLicense.name}](${chosenLicense.lic})
+
+## Contributing
+
+${response.contribute}
+
+## Tests
+
+${response.test}
+
+## Questions
+
+My github profile: https://github.com/${response.hubName}
+
+For any questions about the project, please reach me at: ${response.email}    
+
+---`
 
 /*     `<!DOCTYPE html>
     <html lang="en">
