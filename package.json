@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/pjdip/Philip-DiPaula-OSU-bootcamp-hwk9/issues"
   },
-  "homepage": "https://github.com/pjdip/Philip-DiPaula-OSU-bootcamp-hwk9#readme"
+  "homepage": "https://github.com/pjdip/Philip-DiPaula-OSU-bootcamp-hwk9#readme",
+  "dependencies": {
+    "inquirer": "^7.3.3"
+  }
 }
