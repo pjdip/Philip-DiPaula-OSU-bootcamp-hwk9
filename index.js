@@ -68,6 +68,27 @@ inquirer
     },
   ])
   .then((response) => {
+
+    let chosenLicense;
+
+    if (response.license === 'GNU AGPLv3') {
+        chosenLicense = agplv3;
+    } else if (response.license = 'GNU GPLv3') {
+        chosenLicense = gplv3;
+    } else if (response.license = 'GNU LGPLv3') {
+        chosenLicense = lgplv3;
+    } else if (response.license = 'Mozilla Public License 2.0') {
+        chosenLicense = mozilla;
+    } else if (response.license = 'Apache License 2.0') {
+        chosenLicense = apache;
+    } else if (response.license = 'MIT License') {
+        chosenLicense = mit;
+    } else if (response.license = 'Boost Software License 1.0') {
+        chosenLicense = boost;
+    } else if (response.license = 'The Unilicense') {
+        chosenLicense = uni;
+    }
+
     fs.writeFile('README.md',
     `# ${response.title}
 
@@ -123,7 +144,7 @@ inquirer
 
     ## License
 
-    Licensed under the [License Title](licenseURL)
+    Licensed under the [${chosenLicense.name}](${chosenLicense.lic})
 
     ## Contributing
 
