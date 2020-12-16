@@ -22,19 +22,19 @@ function generateMarkdown(data) {
 
     if (data.license === 'GNU AGPLv3') {
         chosenLicense = agpl;
-    } else if (data.license = 'GNU GPLv3') {
+    } else if (data.license === 'GNU GPLv3') {
         chosenLicense = gpl;
-    } else if (data.license = 'GNU LGPLv3') {
+    } else if (data.license === 'GNU LGPLv3') {
         chosenLicense = lgpl;
-    } else if (data.license = 'Mozilla Public License 2.0') {
+    } else if (data.license === 'Mozilla Public License 2.0') {
         chosenLicense = mozilla;
-    } else if (data.license = 'Apache License 2.0') {
+    } else if (data.license === 'Apache License 2.0') {
         chosenLicense = apache;
-    } else if (data.license = 'MIT License') {
+    } else if (data.license === 'MIT License') {
         chosenLicense = mit;
-    } else if (data.license = 'Boost Software License 1.0') {
+    } else if (data.license === 'Boost Software License 1.0') {
         chosenLicense = boost;
-    } else if (data.license = 'The Unilicense') {
+    } else if (data.license === 'The Unilicense') {
         chosenLicense = uni;
     }
 

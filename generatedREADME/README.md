@@ -1,15 +1,15 @@
-# CryptoKitties
+# d
 
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
-![languages](https://img.shields.io/github/languages/count/pjdip/CryptoKitties)
-![top-language](https://img.shields.io/github/languages/top/pjdip/CryptoKitties)
-![repo-size](https://img.shields.io/github/repo-size/pjdip/CryptoKitties)
-![open-issues](https://img.shields.io/github/issues-raw/pjdip/CryptoKitties)
-![last-commit](https://img.shields.io/github/last-commit/pjdip/CryptoKitties)
+[![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
+![languages](https://img.shields.io/github/languages/count/d/d)
+![top-language](https://img.shields.io/github/languages/top/d/d)
+![repo-size](https://img.shields.io/github/repo-size/d/d)
+![open-issues](https://img.shields.io/github/issues-raw/d/d)
+![last-commit](https://img.shields.io/github/last-commit/d/d)
 
 ## Description
 
-title
+d
 
 ## Table of Contents
 
@@ -23,32 +23,32 @@ title
 
 ## Installation
 
-st
+
 
 ## Usage 
 
-asldkfjas;ldkf
+
 
 ## Credits
 
-a;sdklfj
+
 
 ## License
 
-Licensed under the [GNU General Public License v3.0](https://choosealicense.com/licenses/gpl-3.0/)
+Licensed under the [GNU Affero General Public License v3.0](https://choosealicense.com/licenses/agpl-3.0/)
 
 ## Contributing
 
-a;sdklfasldkfj
+
 
 ## Tests
 
-a;sldkfjaldkfj
+
 
 ## Questions
 
-My github profile: https://github.com/pjdip
+My github profile: https://github.com/d
 
-For any questions about the project, please reach me at: email    
+For any questions about the project, please reach me at: d    
 
 ---
