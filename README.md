@@ -2,7 +2,7 @@
 
 ## These are the files for the homework assignment associated with section 9 of the OSU Web Development Bootcamp
 
-The goal of this assignment was to create a command-line interface (CLI) application that dynamically generates a professional README.md file from a user's input using the [Inquirer package](https://www.npmjs.com/package/inquirer). 
+The goal of this assignment was to create a command-line interface (CLI) application that dynamically generates a professional README.md file from a user's input using the [Inquirer package](https://www.npmjs.com/package/inquirer).
 
 * [Installation](#installation)
 * [Usage](#usage)
