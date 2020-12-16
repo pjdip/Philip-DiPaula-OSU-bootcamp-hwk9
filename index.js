@@ -1,25 +1,21 @@
+// Pulling in modules
 const inquirer = require('inquirer');
 const fs = require('fs');
+const generateMarkdown = require('./utils/generateMarkdown.js');
 
-class License {
-    constructor(name, badge, lic) {
-        this.name = name,
-        this.badge = badge,
-        this.lic = lic
-    }
-}
+const licenses = [
+    'GNU AGPLv3',
+    'GNU GPLv3',
+    'GNU LGPLv3',
+    'Mozilla Public License 2.0',
+    'Apache License 2.0',
+    'MIT License',
+    'Boost Software License 1.0',
+    'The Unilicense',
+];
 
-const agplv3 = new License("GNU Affero General Public License v3.0", "[![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)", "https://choosealicense.com/licenses/agpl-3.0/");
-const gplv3 = new License("GNU General Public License v3.0", "[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)", "https://choosealicense.com/licenses/gpl-3.0/");
-const lgplv3 = new License("GNU Lesser General Public License v3.0", "[![License: LGPL v3](https://img.shields.io/badge/License-LGPL%20v3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0)", "https://choosealicense.com/licenses/lgpl-3.0/");
-const mozilla = new License("Mozilla Publice License 2.0", "[![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)", "https://choosealicense.com/licenses/mpl-2.0/");
-const apache = new License("Apache License 2.0", "[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)", "https://choosealicense.com/licenses/apache-2.0/");
-const mit = new License("MIT License", "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)", "https://choosealicense.com/licenses/mit/");
-const boost = new License("Boost Software License 1.0", "[![License](https://img.shields.io/badge/License-Boost%201.0-lightblue.svg)](https://www.boost.org/LICENSE_1_0.txt)", "https://choosealicense.com/licenses/bsl-1.0/");
-const uni = new License("Unilicense", "[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)", "https://choosealicense.com/licenses/unlicense/");
-
-inquirer
-  .prompt([
+// array of questions for user
+const questions = [
     {
         type: 'input',
         message: "What is your github username? ",
@@ -68,88 +64,24 @@ inquirer
     {
         type: 'list',
         message: 'Please choose the software license for your project:',
-        choices: ['GNU AGPLv3', 'GNU GPLv3', 'GNU LGPLv3', 'Mozilla Public License 2.0', 'Apache License 2.0', 'MIT License', 'Boost Software License 1.0', 'The Unilicense'],
+        choices: licenses,
         name: 'license',
     },
-  ])
-  .then((response) => {
+];
 
-    let chosenLicense;
-
-    if (response.license === 'GNU AGPLv3') {
-        chosenLicense = agplv3;
-    } else if (response.license = 'GNU GPLv3') {
-        chosenLicense = gplv3;
-    } else if (response.license = 'GNU LGPLv3') {
-        chosenLicense = lgplv3;
-    } else if (response.license = 'Mozilla Public License 2.0') {
-        chosenLicense = mozilla;
-    } else if (response.license = 'Apache License 2.0') {
-        chosenLicense = apache;
-    } else if (response.license = 'MIT License') {
-        chosenLicense = mit;
-    } else if (response.license = 'Boost Software License 1.0') {
-        chosenLicense = boost;
-    } else if (response.license = 'The Unilicense') {
-        chosenLicense = uni;
-    }
-
-    fs.writeFile('./generatedREADME/README.md',
-    `# ${response.title}
-
-${chosenLicense.badge}
-![languages](https://img.shields.io/github/languages/count/${response.hubName}/${response.title})
-![top-language](https://img.shields.io/github/languages/top/${response.hubName}/${response.title})
-![repo-size](https://img.shields.io/github/repo-size/${response.hubName}/${response.title})
-![open-issues](https://img.shields.io/github/issues-raw/${response.hubName}/${response.title})
-![last-commit](https://img.shields.io/github/last-commit/${response.hubName}/${response.title})
-
-## Description
-
-${response.description}
-
-## Table of Contents
-
-* [Installation](#installation)
-* [Usage](#usage)
-* [Credits](#credits)
-* [License](#license)
-* [Contributing](#contributing)
-* [Tests](#tests)
-* [Questions](#questions)
-
-## Installation
-
-${response.install}
-
-## Usage 
-
-${response.usage}
-
-## Credits
-
-${response.credits}
-
-## License
-
-Licensed under the [${chosenLicense.name}](${chosenLicense.lic})
-
-## Contributing
-
-${response.contribute}
-
-## Tests
-
-${response.test}
-
-## Questions
-
-My github profile: https://github.com/${response.hubName}
-
-For any questions about the project, please reach me at: ${response.email}    
-
----`
-    , (err) =>
-        // TODO: Describe how this ternary operator works
+// function to write README file
+function writeToFile(filePath, data) {
+    fs.writeFile(filePath, generateMarkdown(data), (err) =>
         err ? console.error(err) : console.log('Commit logged!'));
-  });
+}
+
+// function to initialize program
+function init() {
+    inquirer
+        .prompt(questions)
+        .then((response) => {
+            writeToFile('./generatedREADME/README.md', response);
+        });
+}
+
+init();
