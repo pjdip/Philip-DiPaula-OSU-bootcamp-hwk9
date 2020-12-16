@@ -28,36 +28,36 @@ const questions = [
     },
     {
         type: 'input',
-        message: "What is your project's title? ",
+        message: "What is your project's repository title? ",
         name: 'title',
     },
     {
-        type: 'input',
+        type: 'editor',
         message: 'Please enter a description of your project: ',
         name: 'description',
     },
     {
-        type: 'input',
+        type: 'editor',
         message: 'Please provide installation instructions for your project: ',
         name: 'install',
     },
     {
-        type: 'input',
+        type: 'editor',
         message: 'Please provide usage information: ',
         name: 'usage',
     },
     {
-        type: 'input',
+        type: 'editor',
         message: 'Please provide guidelines for contributing to your project: ',
         name: 'contribute',
     },
     {
-        type: 'input',
+        type: 'editor',
         message: 'Please provide instructions for testing your project: ',
         name: 'test',
     },
     {
-        type: 'input',
+        type: 'editor',
         message: 'Please list any resouces you would like to credit that you used while working on your project: ',
         name: 'credits',
     },

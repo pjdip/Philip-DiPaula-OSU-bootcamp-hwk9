@@ -7,39 +7,23 @@ function generateMarkdown(data) {
             this.badge = badge,
             this.info = info
         }
+        static fromName(str) {
+            const licenseObj = {
+                'GNU AGPLv3': ["GNU Affero General Public License v3.0", "[![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)", "https://choosealicense.com/licenses/agpl-3.0/"],
+                'GNU GPLv3': ["GNU General Public License v3.0", "[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)", "https://choosealicense.com/licenses/gpl-3.0/"],
+                'GNU LGPLv3': ["GNU Lesser General Public License v3.0", "[![License: LGPL v3](https://img.shields.io/badge/License-LGPL%20v3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0)", "https://choosealicense.com/licenses/lgpl-3.0/"],
+                'Mozilla Public License 2.0': ["Mozilla Publice License 2.0", "[![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)", "https://choosealicense.com/licenses/mpl-2.0/"],
+                'Apache License 2.0': ["Apache License 2.0", "[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)", "https://choosealicense.com/licenses/apache-2.0/"],
+                'MIT License': ["MIT License", "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)", "https://choosealicense.com/licenses/mit/"],
+                'Boost Software License 1.0': ["Boost Software License 1.0", "[![License](https://img.shields.io/badge/License-Boost%201.0-lightblue.svg)](https://www.boost.org/LICENSE_1_0.txt)", "https://choosealicense.com/licenses/bsl-1.0/"],
+                'The Unilicense': ["Unilicense", "[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)", "https://choosealicense.com/licenses/unlicense/"]
+            }
+
+            return new License(...licenseObj[str]);
+        }
     }
     
-    const agpl = new License("GNU Affero General Public License v3.0", "[![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)", "https://choosealicense.com/licenses/agpl-3.0/");
-    const gpl = new License("GNU General Public License v3.0", "[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)", "https://choosealicense.com/licenses/gpl-3.0/");
-    const lgpl = new License("GNU Lesser General Public License v3.0", "[![License: LGPL v3](https://img.shields.io/badge/License-LGPL%20v3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0)", "https://choosealicense.com/licenses/lgpl-3.0/");
-    const mozilla = new License("Mozilla Publice License 2.0", "[![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)", "https://choosealicense.com/licenses/mpl-2.0/");
-    const apache = new License("Apache License 2.0", "[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)", "https://choosealicense.com/licenses/apache-2.0/");
-    const mit = new License("MIT License", "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)", "https://choosealicense.com/licenses/mit/");
-    const boost = new License("Boost Software License 1.0", "[![License](https://img.shields.io/badge/License-Boost%201.0-lightblue.svg)](https://www.boost.org/LICENSE_1_0.txt)", "https://choosealicense.com/licenses/bsl-1.0/");
-    const uni = new License("Unilicense", "[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)", "https://choosealicense.com/licenses/unlicense/");    
-
-    let chosenLicense = '';
-
-    if (data.license === 'GNU AGPLv3') {
-        chosenLicense = agpl;
-    } else if (data.license === 'GNU GPLv3') {
-        chosenLicense = gpl;
-    } else if (data.license === 'GNU LGPLv3') {
-        chosenLicense = lgpl;
-    } else if (data.license === 'Mozilla Public License 2.0') {
-        chosenLicense = mozilla;
-    } else if (data.license === 'Apache License 2.0') {
-        chosenLicense = apache;
-    } else if (data.license === 'MIT License') {
-        chosenLicense = mit;
-    } else if (data.license === 'Boost Software License 1.0') {
-        chosenLicense = boost;
-    } else if (data.license === 'The Unilicense') {
-        chosenLicense = uni;
-    }
-
-    console.log(data.license);
-    console.log(chosenLicense);
+    let chosenLicense = License.fromName(data.license);
 
     return `# ${data.title}
 
