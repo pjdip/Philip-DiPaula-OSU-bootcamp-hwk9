@@ -1,7 +1,7 @@
 // Pulling in modules
 const inquirer = require('inquirer');
 const fs = require('fs');
-const generateMarkdown = require('./utils/generateMarkdown.js');
+const generateMarkdown = require('./assets/utils/generateMarkdown.js');
 
 const licenses = [
     'GNU AGPLv3',
